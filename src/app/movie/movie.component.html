@@ -1,0 +1,10 @@
+<div>
+  @for(movie of movies; track movie.id){
+  <img
+    [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+    alt=""
+    srcset=""
+  />
+  <h3>{{ movie.original_title }}</h3>
+  }
+</div>
