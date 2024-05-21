@@ -1,10 +1,27 @@
-<div>
-  @for(movie of movies; track movie.id){
-  <img
-    [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-    alt=""
-    srcset=""
-  />
-  <h3>{{ movie.original_title }}</h3>
-  }
+<div class="cinema">
+  <div class="movie-list">
+    @for(movie of movies; track movie.id){
+    <div class="movie-card">
+      <div class="film-strip">
+        <div class="film-square"></div>
+        <div class="film-square"></div>
+        <div class="film-square"></div>
+        <div class="film-square"></div>
+      </div>
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt=""
+        srcset=""
+        class="movie-banner"
+      />
+      <p class="movie-title">{{ movie.original_title }}</p>
+      <div class="film-strip">
+        <div class="film-square"></div>
+        <div class="film-square"></div>
+        <div class="film-square"></div>
+        <div class="film-square"></div>
+      </div>
+    </div>
+    }
+  </div>
 </div>

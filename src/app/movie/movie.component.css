@@ -1,0 +1,50 @@
+.film-strip {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.film-square {
+  width: 48px;
+  height: 48px;
+  background-color: white;
+}
+
+.cinema {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 12px;
+  width: fit-content;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  height: fit-content;
+  gap: 12px;
+  padding: 16px;
+}
+
+.movie-banner {
+  height: 340px;
+  width: 240px;
+  object-fit: cover;
+}
+
+.movie-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0px;
+  color: white;
+}
