@@ -1,27 +1,32 @@
 <div class="cinema">
-  <div class="movie-list">
-    @for(movie of movies; track movie.id){
-    <div class="movie-card">
-      <div class="film-strip">
-        <div class="film-square"></div>
-        <div class="film-square"></div>
-        <div class="film-square"></div>
-        <div class="film-square"></div>
-      </div>
-      <img
-        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-        alt=""
-        srcset=""
-        class="movie-banner"
-      />
-      <p class="movie-title">{{ movie.original_title }}</p>
-      <div class="film-strip">
-        <div class="film-square"></div>
-        <div class="film-square"></div>
-        <div class="film-square"></div>
-        <div class="film-square"></div>
+  <div class="header">
+    <h1 class="header-title">CINEMA SÃO CARLOS</h1>
+  </div>
+  <div class="carousel-container">
+    <button class="nav-arrow left-arrow" (click)="scrollLeft()">&#10094;</button>
+    <div class="movie-list" #movieList>
+      <div *ngFor="let movie of movies; trackBy: trackByMovieId" class="movie-card" (click)="logMovieId(movie.id)">
+        <div class="film-strip">
+          <div class="film-square"></div>
+          <div class="film-square"></div>
+          <div class="film-square"></div>
+          <div class="film-square"></div>
+        </div>
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          alt=""
+          srcset=""
+          class="movie-banner"
+        />
+        <p class="movie-title">{{ movie.original_title }}</p>
+        <div class="film-strip">
+          <div class="film-square"></div>
+          <div class="film-square"></div>
+          <div class="film-square"></div>
+          <div class="film-square"></div>
+        </div>
       </div>
     </div>
-    }
+    <button class="nav-arrow right-arrow" (click)="scrollRight()">&#10095;</button>
   </div>
 </div>
