@@ -1,0 +1,16 @@
+<div class="movie" class="movie-detail-container">
+  <div class="movie-content">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      alt="{{ movie.title }}"
+      class="movie-poster"
+    />
+    <div class="movie-info">
+      <h1 class="movie-title">{{ movie.title }}</h1>
+      <p class="movie-overview">{{ movie.overview }}</p>
+      <p class="movie-release-date">Release Date: {{ movie.release_date }}</p>
+      <p class="movie-rating">Rating: {{ movie.vote_average }}</p>
+      <button class="get-tickets-button">Get Tickets</button>
+    </div>
+  </div>
+</div>

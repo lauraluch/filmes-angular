@@ -1,13 +1,14 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
 })
 export class MovieComponent implements OnInit {
   movies: any = [];
@@ -15,7 +16,7 @@ export class MovieComponent implements OnInit {
 
   @ViewChild('movieList') movieList!: ElementRef;
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadMovies();
@@ -40,19 +41,19 @@ export class MovieComponent implements OnInit {
   }
 
   logMovieId(id: number): void {
-    console.log('Movie ID:', id);
+    this.router.navigate(['/movie', id]);
   }
 
   scrollLeft(): void {
     this.movieList.nativeElement.scrollBy({
-      left: -440,
+      left: -240, // Altere o valor conforme necessário
       behavior: 'smooth',
     });
   }
 
   scrollRight(): void {
     this.movieList.nativeElement.scrollBy({
-      left: 440,
+      left: 240, // Altere o valor conforme necessário
       behavior: 'smooth',
     });
   }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../environments/environment.devlopment';
+import { Observable } from 'rxjs';
 
 const apiURL = environment.apiURL;
 const apikey = environment.apikey;
@@ -14,6 +15,10 @@ export class MovieService {
   constructor() {}
 
   getMovies() {
-    return this.http.get(`${apiURL}?api_key=${apikey}`);
+    return this.http.get(`${apiURL}discover/movie?api_key=${apikey}`);
+  }
+
+  getMovieDetails(id: string): Observable<any> {
+    return this.http.get<any>(`${apiURL}movie/${id}?api_key=${apikey}`);
   }
 }
