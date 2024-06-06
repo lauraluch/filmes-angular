@@ -12,6 +12,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
   movies: any = [];
+  nextReleases: any = [];
   squares: any[] = [];
 
   @ViewChild('movieList') movieList!: ElementRef;
@@ -20,6 +21,7 @@ export class MovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMovies();
+    this.loadNextReleases();
     this.calculateSquares();
   }
 
@@ -35,6 +37,16 @@ export class MovieComponent implements OnInit {
       next: (res: any) => {
         this.movies = res.results;
         console.log(this.movies);
+      },
+      error: (error) => console.log('Erro ao realizar um fetch dos filmes', error),
+    });
+  }
+
+  loadNextReleases() {
+    this.movieService.getNextReleases().subscribe({
+      next: (res: any) => {
+        this.nextReleases = res.results;
+        console.log(this.nextReleases);
       },
       error: (error) => console.log('Erro ao realizar um fetch dos filmes', error),
     });

@@ -10,7 +10,9 @@
       <p class="movie-overview">{{ movie.overview }}</p>
       <p class="movie-release-date">Release Date: {{ movie.release_date }}</p>
       <p class="movie-rating">Rating: {{ movie.vote_average }}</p>
-      <button class="get-tickets-button">Get Tickets</button>
+      <a [routerLink]="['/buy']">
+        <button class="get-tickets-button">Get Tickets</button>
+      </a>
     </div>
   </div>
 </div>

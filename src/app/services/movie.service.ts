@@ -18,6 +18,10 @@ export class MovieService {
     return this.http.get(`${apiURL}discover/movie?api_key=${apikey}`);
   }
 
+  getNextReleases() {
+    return this.http.get(`${apiURL}/movie/upcoming?api_key=${apikey}`);
+  }
+
   getMovieDetails(id: string): Observable<any> {
     return this.http.get<any>(`${apiURL}movie/${id}?api_key=${apikey}`);
   }

@@ -1,0 +1,65 @@
+<body>
+  <header>
+    <h1>Compra de Ingressos - Cinema</h1>
+  </header>
+  <main>
+    <section id="horarios">
+      <label for="selecao-horario">Selecione o horário:</label>
+      <select id="selecao-horario" [(ngModel)]="selectedHorario">
+        <option *ngFor="let horario of horarios" [value]="horario">
+          {{ horario }}
+        </option>
+      </select>
+    </section>
+
+    <section id="assentos">
+      <h2>Selecione seus assentos:</h2>
+      <div class="cinema-sala">
+        <div class="fileira" *ngFor="let fileira of fileiras">
+          <button
+            class="assento"
+            *ngFor="let assento of assentosPorFileira"
+            [ngClass]="{
+              selecionado: assentosSelecionados.has(fileira + assento)
+            }"
+            (click)="toggleSelecionado(fileira + assento)"
+          >
+            {{ fileira + assento }}
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="tipo-ingresso">
+      <h2>Tipo de Ingresso:</h2>
+      <label>
+        <input
+          type="radio"
+          name="tipo-ingresso"
+          value="inteira"
+          [(ngModel)]="tipoIngresso"
+          checked
+        />
+        Inteira - R$ 16,00
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="tipo-ingresso"
+          value="meia"
+          [(ngModel)]="tipoIngresso"
+        />
+        Meia - R$ 8,00
+      </label>
+    </section>
+
+    <div class="row">
+      <button (click)="comprarIngresso()">Comprar Ingresso</button>
+      <a [routerLink]="['/']">
+        <button class="cancel-button">
+          Cancelar
+        </button>
+      </a>
+    </div>
+  </main>
+</body>

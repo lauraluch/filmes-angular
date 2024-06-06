@@ -2,6 +2,7 @@
   <div class="header">
     <h1 class="header-title">CINEMA SÃO CARLOS</h1>
   </div>
+  <h2>Filmes em cartaz</h2>
   <div class="carousel-container">
     <button class="nav-arrow left-arrow" (click)="scrollLeft()">&#10094;</button>
     <div class="movie-list" #movieList>
@@ -20,6 +21,37 @@
             class="movie-banner"
           />
           <p class="movie-title">{{ movie.original_title }}</p>
+          <div class="film-strip">
+            <div class="film-square"></div>
+            <div class="film-square"></div>
+            <div class="film-square"></div>
+            <div class="film-square"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <button class="nav-arrow right-arrow" (click)="scrollRight()">&#10095;</button>
+  </div>
+
+  <h2>Próximos lançamentos</h2>
+  <div class="carousel-container">
+    <button class="nav-arrow left-arrow" (click)="scrollLeft()">&#10094;</button>
+    <div class="movie-list" #movieList>
+      <div *ngFor="let release of nextReleases; trackBy: trackByMovieId" class="movie-card">
+        <a [routerLink]="['/movie', release.id]">
+          <div class="film-strip">
+            <div class="film-square"></div>
+            <div class="film-square"></div>
+            <div class="film-square"></div>
+            <div class="film-square"></div>
+          </div>
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + release.poster_path"
+            alt=""
+            srcset=""
+            class="movie-banner"
+          />
+          <p class="movie-title">{{ release.original_title }}</p>
           <div class="film-strip">
             <div class="film-square"></div>
             <div class="film-square"></div>
