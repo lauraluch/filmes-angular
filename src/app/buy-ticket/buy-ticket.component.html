@@ -38,7 +38,6 @@
           name="tipo-ingresso"
           value="inteira"
           [(ngModel)]="tipoIngresso"
-          checked
         />
         Inteira - R$ 16,00
       </label>
@@ -51,6 +50,11 @@
         />
         Meia - R$ 8,00
       </label>
+    </section>
+
+    <section id="total">
+      <h2>Total:</h2>
+      <p>R$ {{ calcularTotal() }},00</p>
     </section>
 
     <div class="row">

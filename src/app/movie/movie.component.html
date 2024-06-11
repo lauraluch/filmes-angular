@@ -4,8 +4,8 @@
   </div>
   <h2>Filmes em cartaz</h2>
   <div class="carousel-container">
-    <button class="nav-arrow left-arrow" (click)="scrollLeft()">&#10094;</button>
-    <div class="movie-list" #movieList>
+    <button class="nav-arrow left-arrow" (click)="scrollLeft(movieList1)">&#10094;</button>
+    <div class="movie-list" #movieList1>
       <div *ngFor="let movie of movies; trackBy: trackByMovieId" class="movie-card">
         <a [routerLink]="['/movie', movie.id]">
           <div class="film-strip">
@@ -20,7 +20,7 @@
             srcset=""
             class="movie-banner"
           />
-          <p class="movie-title">{{ movie.original_title }}</p>
+          <p class="movie-title">{{ movie.title }}</p>
           <div class="film-strip">
             <div class="film-square"></div>
             <div class="film-square"></div>
@@ -30,13 +30,13 @@
         </a>
       </div>
     </div>
-    <button class="nav-arrow right-arrow" (click)="scrollRight()">&#10095;</button>
+    <button class="nav-arrow right-arrow" (click)="scrollRight(movieList1)">&#10095;</button>
   </div>
 
   <h2>Próximos lançamentos</h2>
   <div class="carousel-container">
-    <button class="nav-arrow left-arrow" (click)="scrollLeft()">&#10094;</button>
-    <div class="movie-list" #movieList>
+    <button class="nav-arrow left-arrow" (click)="scrollLeft(movieList2)">&#10094;</button>
+    <div class="movie-list" #movieList2>
       <div *ngFor="let release of nextReleases; trackBy: trackByMovieId" class="movie-card">
         <a [routerLink]="['/movie', release.id]">
           <div class="film-strip">
@@ -51,7 +51,7 @@
             srcset=""
             class="movie-banner"
           />
-          <p class="movie-title">{{ release.original_title }}</p>
+          <p class="movie-title">{{ release.title }}</p>
           <div class="film-strip">
             <div class="film-square"></div>
             <div class="film-square"></div>
@@ -61,6 +61,6 @@
         </a>
       </div>
     </div>
-    <button class="nav-arrow right-arrow" (click)="scrollRight()">&#10095;</button>
+    <button class="nav-arrow right-arrow" (click)="scrollRight(movieList2)">&#10095;</button>
   </div>
 </div>

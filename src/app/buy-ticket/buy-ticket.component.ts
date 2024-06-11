@@ -6,14 +6,14 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-buy-ticket',
   standalone: true,
-  imports: [FormsModule,CommonModule,RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './buy-ticket.component.html',
-  styleUrl: './buy-ticket.component.css'
+  styleUrls: ['./buy-ticket.component.css']
 })
 export class BuyTicketComponent {
   horarios: string[] = ['18:00', '20:00', '22:00'];
   fileiras: string[] = ['A', 'B', 'C', 'D', 'E'];
-  assentosPorFileira: number[] = Array.from({length: 10}, (_, i) => i + 1);
+  assentosPorFileira: number[] = Array.from({ length: 10 }, (_, i) => i + 1);
   selectedHorario: string = this.horarios[0];
   tipoIngresso: string = 'inteira';
   assentosSelecionados: Set<string> = new Set<string>();
@@ -30,10 +30,16 @@ export class BuyTicketComponent {
     }
   }
 
+  calcularTotal(): number {
+    const precoPorIngresso = this.tipoIngresso === 'inteira' ? 16 : 8;
+    return this.assentosSelecionados.size * precoPorIngresso;
+  }
+
   comprarIngresso(): void {
     if (this.assentosSelecionados.size > 0) {
       const assentosText = Array.from(this.assentosSelecionados).join(', ');
-      alert(`Ingressos comprados para os assentos: ${assentosText}\nTipo: ${this.tipoIngresso}\nHorário: ${this.selectedHorario}`);
+      const total = this.calcularTotal();
+      alert(`Ingressos comprados para os assentos: ${assentosText}\nTipo: ${this.tipoIngresso}\nHorário: ${this.selectedHorario}\nTotal: R$ ${total}`);
     } else {
       alert('Por favor, selecione pelo menos um assento.');
     }

@@ -15,14 +15,14 @@ export class MovieService {
   constructor() {}
 
   getMovies() {
-    return this.http.get(`${apiURL}discover/movie?api_key=${apikey}`);
+    return this.http.get(`${apiURL}discover/movie?api_key=${apikey}&language=pt-Br`);
   }
 
   getNextReleases() {
-    return this.http.get(`${apiURL}/movie/upcoming?api_key=${apikey}`);
+    return this.http.get(`${apiURL}/movie/upcoming?api_key=${apikey}&language=pt-Br`);
   }
 
   getMovieDetails(id: string): Observable<any> {
-    return this.http.get<any>(`${apiURL}movie/${id}?api_key=${apikey}`);
+    return this.http.get<any>(`${apiURL}movie/${id}?api_key=${apikey}&language=pt-Br`);
   }
 }

@@ -8,14 +8,15 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css'],
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
 })
 export class MovieComponent implements OnInit {
   movies: any = [];
   nextReleases: any = [];
   squares: any[] = [];
 
-  @ViewChild('movieList') movieList!: ElementRef;
+  @ViewChild('movieList1') movieList1!: ElementRef<HTMLDivElement>;
+  @ViewChild('movieList2') movieList2!: ElementRef<HTMLDivElement>;
 
   constructor(private movieService: MovieService, private router: Router) {}
 
@@ -56,16 +57,16 @@ export class MovieComponent implements OnInit {
     this.router.navigate(['/movie', id]);
   }
 
-  scrollLeft(): void {
-    this.movieList.nativeElement.scrollBy({
-      left: -240, // Altere o valor conforme necessário
+  scrollLeft(movieList: HTMLDivElement): void {
+    movieList.scrollBy({
+      left: -240,
       behavior: 'smooth',
     });
   }
 
-  scrollRight(): void {
-    this.movieList.nativeElement.scrollBy({
-      left: 240, // Altere o valor conforme necessário
+  scrollRight(movieList: HTMLDivElement): void {
+    movieList.scrollBy({
+      left: 240,
       behavior: 'smooth',
     });
   }

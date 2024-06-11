@@ -98,3 +98,7 @@ button {
 .cancel-button {
   background-color: gray;
 }
+
+#total {
+  padding-bottom: 16px;
+}
